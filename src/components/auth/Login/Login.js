@@ -10,7 +10,9 @@ export default class Login extends Component {
 
         this.state = {
             username : '',
-            password: ''
+            password: '',
+            showUserError: false,
+            showPassError: false
         }
 
         this.changeUsername = this.changeUsername.bind(this)
@@ -19,33 +21,47 @@ export default class Login extends Component {
     }
 
     changeUsername = (event) => {
+        this.setState({showUserError: false})
         this.setState({username: event})
     }
 
     changePassword = (event) => {
+        this.setState({showPassError: false})
         this.setState({password: event})
     }
 
     login = () => {
 
-        if (this.state.username == '') {
+        if (this.state.username == '' && this.state.password == '') {
+            this.setState({showUserError: true})
+            this.setState({showPassError: true})
+            return
+        }
 
+        if (this.state.username == '') {
+            this.setState({showUserError: true})
+            return
         }
 
         if (this.state.password == '') {
-
+            this.setState({showPassError: true})
+            return
         }
         
+        console.log(this.state)
+
         fetch('http://mirrorme.devserver.co.in/api/user', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(this.state)
+            body: JSON.stringify({email: this.state.username, password: this.state.password})
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+
+        })
         .catch(err => console.log(err))
 
 
@@ -56,23 +72,33 @@ export default class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <StatusBar
-                    backgroundColor="#9b0000"
-                    barStyle="light-content"
-                />
-                <View>
-                    <View style={{alignItems: 'center', marginBottom: 20}}>
-                    <Text style={{color: '#ffffff', fontSize: 25}}>RevInfotech</Text>    
+                
+                    <StatusBar
+                        backgroundColor="#9b0000"
+                        barStyle="light-content"
+                    />
+                    <View>
+                        <View style={{alignItems: 'center', marginBottom: 20}}>
+                        <Text style={{color: '#ffffff', fontSize: 25}}>RevInfotech</Text>
                     </View>
                     
-                    <View style={styles.input}>
-                        <Icon name="email" type="material-icons"/>
-                        <TextInput placeholder="email" style={styles.inputText} onChangeText={this.changeUsername}/>
+                    <View style={{marginBottom: 15}}>
+                        <View style={styles.input}>
+                            <Icon name="email" type="material-icons"/>
+                            <TextInput placeholder="email" style={styles.inputText} onChangeText={this.changeUsername}/>
+                        </View>
+                        {this.state.showUserError ? <Text>Username is required !</Text> : null}
                     </View>
-                    <View style={styles.input}>
-                        <Icon name="vpn-key" type="material-icon" />
-                        <TextInput placeholder="password" style={styles.inputText} onChangeText={this.changePassword} secureTextEntry={true}/>
+                    
+                    <View style={{marginBottom: 15}}>
+                        <View style={styles.input}>
+                            <Icon name="vpn-key" type="material-icon" />
+                            <TextInput placeholder="password" style={styles.inputText} onChangeText={this.changePassword} secureTextEntry={true}/>
+                        </View>
+                        {this.state.showPassError ? <Text>Password is required !</Text> : null }
+                        
                     </View>
+                    
                     <View style={{alignItems: 'center'}}>
                         <TouchableOpacity style={styles.button} onPress={this.login}>
                             <Text style={styles.buttontext}>Login</Text>
@@ -96,7 +122,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         borderBottomWidth: 1,
         borderBottomColor: '#000000',
-        marginBottom: 15,
         width: 280
     },
     inputText: {
