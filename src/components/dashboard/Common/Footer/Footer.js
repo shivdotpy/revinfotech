@@ -1,8 +1,25 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
 import {Icon} from 'react-native-elements';
 
 export default class Footer extends Component {
+
+    goHome = () => {
+        const { navigate } = this.props.prop.navigation;
+        navigate('Apply')   
+    }
+
+    goAnnouncement = () => {
+        const { navigate } = this.props.prop.navigation;
+        navigate('Announcement')   
+    }
+
+    goHistory = () => {
+        const { navigate } = this.props.prop.navigation;
+        navigate('History')   
+    }
+
+
   render() {
 
     let applycolor = '#000000'
@@ -34,26 +51,26 @@ export default class Footer extends Component {
 
     return (
       <View style={styles.container}>
-        <View>
+        <TouchableOpacity onPress={this.goHome}>
             <Icon name="home" size={25} color={applycolor} />
             {/* <Text style={{fontSize: 10}}>Home</Text> */}
-        </View>
-        <View>
-            <Icon name="history" size={25} type="material-icons" color={historycolor}/>
-            {/* <Text style={{fontSize: 10}}>History</Text> */}
-        </View>
-        <View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.goAnnouncement}>
             <Icon name="announcement" size={25} type="material-icons" color={announcementcolor}/>
             {/* <Text style={{fontSize: 10}}>Announcement</Text> */}
-        </View>
-        <View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.goHistory}>
+            <Icon name="history" size={25} type="material-icons" color={historycolor}/>
+            {/* <Text style={{fontSize: 10}}>History</Text> */}
+        </TouchableOpacity>
+        <TouchableOpacity>
             <Icon name="notifications" size={25} type="material-icons" color={notificationcolor}/>
             {/* <Text style={{fontSize: 10}}>Notification</Text> */}
-        </View>
-        <View>
+        </TouchableOpacity>
+        <TouchableOpacity>
             <Icon name="pencil" size={25} type="material-community" color={feedbackcolor}/>
             {/* <Text style={{fontSize: 10}}>Feedback</Text> */}
-        </View>
+        </TouchableOpacity>
       </View>
     )
   }

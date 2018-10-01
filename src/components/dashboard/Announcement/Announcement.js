@@ -17,7 +17,7 @@ export default class Announcement extends Component {
           <Text> Announcement </Text>
         </View>
         <View>
-          <Footer announcementColor='#d50000'/>
+          <Footer announcementColor='#d50000' prop={this.props}/>
         </View>  
       </View>
     )

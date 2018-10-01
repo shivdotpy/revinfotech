@@ -19,7 +19,7 @@ export default class Apply extends Component {
           <Text> Apply </Text>
         </View>
         <View>
-          <Footer applyColor='#d50000'/>
+          <Footer applyColor='#d50000' prop={this.props}/>
         </View>  
       </View>
     )
