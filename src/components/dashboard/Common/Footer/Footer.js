@@ -56,7 +56,7 @@ export default class Footer extends Component {
             {/* <Text style={{fontSize: 10}}>Home</Text> */}
         </TouchableOpacity>
         <TouchableOpacity onPress={this.goAnnouncement}>
-            <Icon name="announcement" size={25} type="material-icons" color={announcementcolor}/>
+            <Icon name="event" size={25} type="material-icons" color={announcementcolor}/>
             {/* <Text style={{fontSize: 10}}>Announcement</Text> */}
         </TouchableOpacity>
         <TouchableOpacity onPress={this.goHistory}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, StatusBar, Dimensions } from 'react-native'
+import { Text, StyleSheet, View, StatusBar, Dimensions, ScrollView } from 'react-native'
 
 import Header from '../Common/Header/Header'
 import Footer from '../Common/Footer/Footer'
@@ -34,39 +34,147 @@ export default class History extends Component {
         <View>
           <Header name="History" prop={this.props}/>
         </View>
-        <View style={{flex: 1, alignItems: 'center', paddingVertical: 5}}>
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <ScrollView showsVerticalScrollIndicator= {false}>
           {/* Card View */}
           <View style={styles.box}>
             <View style={{flexDirection: 'row', padding: 5}}>
                 <View style={{flex: 1}}>
-                  <Text style={styles.boxTextWhite}>24 Feb 2018</Text>
+                  <Text style={styles.boxTextWhiteHeading}>24 Feb 2018</Text>
                 </View>
                 <View style={{flex: 1, alignItems: 'flex-end'}}>
-                  <Text style={styles.boxTextWhite}>Approved</Text>
+                  <Text style={styles.boxTextWhiteHeading}>Approved</Text>
                 </View>
             </View>
 
             <View style={{padding: 5}}>
-              <Text style={styles.boxTextWhite}>Application Date: 20 Feb</Text>
-              <Text style={styles.boxTextWhite}>Reason: Family Function</Text>
+              <Text style={styles.boxTextWhiteHeading}>Reason: Family Function</Text>
+              <Text style={styles.boxTextWhiteHeading}>Application Date: 20 Feb 2018</Text>
             </View>
 
             <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 5}}>
               <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Leave Type</Text>
                 <Text style={styles.boxTextWhite}>Full Day</Text>
-                <Text style={styles.boxTextWhiteHeading}>Leave Type</Text>
+                
               </View>
               <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Leave Count</Text>
                 <Text style={styles.boxTextWhite}>1</Text>
-                <Text style={styles.boxTextWhiteHeading}>Leave Count</Text>
+
               </View>
               <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Backup Plan</Text>
                 <Text style={styles.boxTextWhite}>Akshay Seth</Text>
-                <Text style={styles.boxTextWhiteHeading}>Backup Plan</Text>
+                
               </View>
             </View>
 
           </View>
+
+          <View style={styles.box}>
+            <View style={{flexDirection: 'row', padding: 5}}>
+                <View style={{flex: 1}}>
+                  <Text style={styles.boxTextWhiteHeading}>24 Feb 2018</Text>
+                </View>
+                <View style={{flex: 1, alignItems: 'flex-end'}}>
+                  <Text style={styles.boxTextWhiteHeading}>Approved</Text>
+                </View>
+            </View>
+
+            <View style={{padding: 5}}>
+              <Text style={styles.boxTextWhiteHeading}>Reason: Family Function</Text>
+              <Text style={styles.boxTextWhiteHeading}>Application Date: 20 Feb 2018</Text>
+            </View>
+
+            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 5}}>
+              <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Leave Type</Text>
+                <Text style={styles.boxTextWhite}>Full Day</Text>
+                
+              </View>
+              <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Leave Count</Text>
+                <Text style={styles.boxTextWhite}>1</Text>
+
+              </View>
+              <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Backup Plan</Text>
+                <Text style={styles.boxTextWhite}>Akshay Seth</Text>
+                
+              </View>
+            </View>
+
+          </View>
+
+          <View style={styles.box}>
+            <View style={{flexDirection: 'row', padding: 5}}>
+                <View style={{flex: 1}}>
+                  <Text style={styles.boxTextWhiteHeading}>24 Feb 2018</Text>
+                </View>
+                <View style={{flex: 1, alignItems: 'flex-end'}}>
+                  <Text style={styles.boxTextWhiteHeading}>Approved</Text>
+                </View>
+            </View>
+
+            <View style={{padding: 5}}>
+              <Text style={styles.boxTextWhiteHeading}>Reason: Family Function</Text>
+              <Text style={styles.boxTextWhiteHeading}>Application Date: 20 Feb 2018</Text>
+            </View>
+
+            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 5}}>
+              <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Leave Type</Text>
+                <Text style={styles.boxTextWhite}>Full Day</Text>
+                
+              </View>
+              <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Leave Count</Text>
+                <Text style={styles.boxTextWhite}>1</Text>
+
+              </View>
+              <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Backup Plan</Text>
+                <Text style={styles.boxTextWhite}>Akshay Seth</Text>
+              </View>
+            </View>
+
+          </View>
+          <View style={styles.box}>
+            <View style={{flexDirection: 'row', padding: 5}}>
+                <View style={{flex: 1}}>
+                  <Text style={styles.boxTextWhiteHeading}>24 Feb 2018</Text>
+                </View>
+                <View style={{flex: 1, alignItems: 'flex-end'}}>
+                  <Text style={styles.boxTextWhiteHeading}>Approved</Text>
+                </View>
+            </View>
+
+            <View style={{padding: 5}}>
+              <Text style={styles.boxTextWhiteHeading}>Reason: Family Function</Text>
+              <Text style={styles.boxTextWhiteHeading}>Application Date: 20 Feb 2018</Text>
+            </View>
+
+            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 5}}>
+              <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Leave Type</Text>
+                <Text style={styles.boxTextWhite}>Full Day</Text>
+                
+              </View>
+              <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Leave Count</Text>
+                <Text style={styles.boxTextWhite}>1</Text>
+
+              </View>
+              <View style={{alignItems: 'center'}}>
+              <Text style={styles.boxTextWhiteHeading}>Backup Plan</Text>
+                <Text style={styles.boxTextWhite}>Akshay Seth</Text>
+                
+              </View>
+            </View>
+
+          </View>
+          </ScrollView>
         </View>
         <View>
           <Footer historyColor='#d50000' prop={this.props}/>
@@ -81,9 +189,11 @@ const styles = StyleSheet.create({
     width : width,
     borderWidth: 0.5,
     borderColor: '#d50000',
-    marginVertical: 5,
+    marginTop: 10,
+    marginBottom: 2,
     backgroundColor: '#ff5131',
-    padding: 5
+    padding: 5,
+    elevation: 5
   },
   boxTextWhite: {
     color: '#E8E8E8'
