@@ -16,7 +16,7 @@ export default class History extends Component {
             barStyle="light-content"
         />
         <View>
-          <Header name="History"/>
+          <Header name="History" prop={this.props}/>
         </View>
         <View style={{flex: 1}}>
           <Text> History </Text>

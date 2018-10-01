@@ -17,7 +17,7 @@ export default class Apply extends Component {
             barStyle="light-content"
         />
         <View>
-          <Header name="Home"/>
+          <Header name="Home" prop={this.props}/>
         </View>
         <View style={{flex: 1}}>
           <Text>Apply Page</Text>

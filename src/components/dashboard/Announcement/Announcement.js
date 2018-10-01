@@ -16,7 +16,7 @@ export default class Announcement extends Component {
             barStyle="light-content"
         />
         <View>
-          <Header name="Announcement" />
+          <Header name="Announcement" prop={this.props}/>
         </View>
         <View style={{flex: 1}}>
           <Text> Announcement </Text>
