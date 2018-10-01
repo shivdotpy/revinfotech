@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, StatusBar } from 'react-native'
 
 // Footer
-import Footer from '../Common/Footer/Footer'
+import Header from '../Common/Header/Header';
+import Footer from '../Common/Footer/Footer';
 
 export default class Apply extends Component {
   
@@ -15,8 +16,11 @@ export default class Apply extends Component {
             backgroundColor="#d50000"
             barStyle="light-content"
         />
+        <View>
+          <Header name="Home"/>
+        </View>
         <View style={{flex: 1}}>
-          <Text> Apply </Text>
+          <Text>Apply Page</Text>
         </View>
         <View>
           <Footer applyColor='#d50000' prop={this.props}/>

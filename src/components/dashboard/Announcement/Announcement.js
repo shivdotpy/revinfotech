@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, StatusBar } from 'react-native'
+
+import Header from '../Common/Header/Header'
 import Footer from '../Common/Footer/Footer'
 
 export default class Announcement extends Component {
@@ -13,6 +15,9 @@ export default class Announcement extends Component {
             backgroundColor="#d50000"
             barStyle="light-content"
         />
+        <View>
+          <Header name="Announcement" />
+        </View>
         <View style={{flex: 1}}>
           <Text> Announcement </Text>
         </View>
