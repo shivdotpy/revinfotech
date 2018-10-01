@@ -5,6 +5,7 @@ import { Text, StyleSheet, View, StatusBar } from 'react-native'
 import Header from '../Common/Header/Header';
 import Footer from '../Common/Footer/Footer';
 
+
 export default class Apply extends Component {
   
   static navigationOptions = { header: null }
