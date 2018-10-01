@@ -9,8 +9,8 @@ export default class Login extends Component {
         super(props)
 
         this.state = {
-            username : '',
-            password: '',
+            username : 'punya@revinfotech.com',
+            password: '12341234',
             showUserError: false,
             showPassError: false
         }
@@ -60,7 +60,12 @@ export default class Login extends Component {
         })
         .then(res => res.json())
         .then(data => {
+            if (data.error === false) {
+                const { navigate } = this.props.navigation;
+                navigate('Apply')
+            } else {
 
+            }
         })
         .catch(err => console.log(err))
 

@@ -1,11 +1,26 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { Text, StyleSheet, View, StatusBar } from 'react-native'
+
+// Footer
+import Footer from '../Common/Footer/Footer'
 
 export default class Apply extends Component {
+  
+  static navigationOptions = { header: null }
+
   render() {
     return (
-      <View>
-        <Text> textInComponent </Text>
+      <View style={{flex: 1}}>
+        <StatusBar
+            backgroundColor="#d50000"
+            barStyle="light-content"
+        />
+        <View style={{flex: 1}}>
+          <Text> Apply </Text>
+        </View>
+        <View>
+          <Footer applyColor='#d50000'/>
+        </View>  
       </View>
     )
   }

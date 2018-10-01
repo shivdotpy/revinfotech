@@ -13,7 +13,7 @@ export default createStackNavigator({
     screen: Login
   },
   Apply: {
-    screen:  Apply
+    screen:  History
   },
   Announcement: {
     screen: Announcement
