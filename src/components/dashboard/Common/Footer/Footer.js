@@ -19,6 +19,11 @@ export default class Footer extends Component {
         navigate('History')   
     }
 
+    goFeedback = () => {
+        const { navigate } = this.props.prop.navigation;
+        navigate('Feedback')   
+    }
+
 
   render() {
 
@@ -63,11 +68,11 @@ export default class Footer extends Component {
             <Icon name="history" size={25} type="material-icons" color={historycolor}/>
             {/* <Text style={{fontSize: 10}}>History</Text> */}
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity >
             <Icon name="notifications" size={25} type="material-icons" color={notificationcolor}/>
             {/* <Text style={{fontSize: 10}}>Notification</Text> */}
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.goFeedback}>
             <Icon name="pencil" size={25} type="material-community" color={feedbackcolor}/>
             {/* <Text style={{fontSize: 10}}>Feedback</Text> */}
         </TouchableOpacity>

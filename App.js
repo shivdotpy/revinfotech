@@ -7,6 +7,7 @@ import Login from './src/components/auth/Login/Login'
 import Apply from './src/components/dashboard/Apply/Apply'
 import Announcement from './src/components/dashboard/Announcement/Announcement'
 import History from './src/components/dashboard/History/History'
+import Feedback from './src/components/dashboard/Feedback/Feedback'
 
 export default createStackNavigator({
   Login: {
@@ -20,5 +21,8 @@ export default createStackNavigator({
   },
   History : {
     screen: History
+  },
+  Feedback: {
+    screen: Feedback
   }
 });
