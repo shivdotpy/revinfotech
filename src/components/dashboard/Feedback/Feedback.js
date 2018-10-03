@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, StatusBar, TextInput, ScrollView, TouchableOpacity } from 'react-native'
-
+import { Text, StyleSheet, View, StatusBar, TextInput, ScrollView, TouchableOpacity, Keyboard } from 'react-native'
 
 // Header and Footer
 import Header from '../Common/Header/Header'
@@ -8,7 +7,41 @@ import Footer from '../Common/Footer/Footer'
 
 export default class Feedback extends Component {
 
-    static navigationOptions = { header: null }
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            showFooter : true
+        };
+
+        this._keyboardDidShow = this._keyboardDidShow.bind(this);
+        this._keyboardDidHide = this._keyboardDidHide.bind(this);
+    }
+
+
+    static navigationOptions = { header: null };
+
+    componentDidMount () {
+        this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
+        this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+    }
+
+    componentWillUnmount () {
+        this.keyboardDidShowListener.remove();
+        this.keyboardDidHideListener.remove();
+    }
+
+    _keyboardDidShow () {
+        this.setState({showFooter: false});
+        // alert('Keyboard Shown');
+    }
+
+    _keyboardDidHide () {
+        this.setState({showFooter: true});
+        // alert('Keyboard Hidden');
+    }
+
+
     render() {
         return (
         <View style={{flex: 1}}>
@@ -29,7 +62,7 @@ export default class Feedback extends Component {
                         {/* <Text style={styles.cardTextTitle}>Feedback Title</Text>
                         <TextInput style={styles.input}></TextInput> */}
                         <Text style={styles.cardTextTitle}>Feedback</Text>
-                        <TextInput style={styles.input}></TextInput>
+                        <TextInput style={styles.input} multiline = {true} numberOfLines = {4} />
                         <View style={{alignItems: 'center'}}>
                             <TouchableOpacity style={styles.button}>
                                 <Text style={{color: 'black', fontWeight: '800', fontSize: 15}}>Submit</Text>
@@ -39,9 +72,10 @@ export default class Feedback extends Component {
                     </View>
                 </ScrollView>
             </View>
+            {this.state.showFooter ?
             <View>
                 <Footer feedbackColor='#d50000' prop={this.props}/>
-            </View>
+            </View> : null }
         </View>
         )
     }
@@ -50,10 +84,7 @@ export default class Feedback extends Component {
 const styles = StyleSheet.create({
     card: {
         padding: 30,
-        borderColor: 'grey',
-        borderWidth: 0.7,
         width: 400,
-        elevation: 1,
         borderRadius: 1,
         marginTop: 10
     },
@@ -74,7 +105,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         borderRadius: 3,
         padding: 5,
-        height: 100
+        alignItems: 'flex-start'
     },
     button: {
         marginVertical: 10,
