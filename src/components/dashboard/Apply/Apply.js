@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, StatusBar } from 'react-native'
+import { Text, StyleSheet, View, StatusBar, ScrollView, Button, TouchableOpacity } from 'react-native'
+
+import {Tile} from 'react-native-elements';
 
 // Footer
 import Header from '../Common/Header/Header';
@@ -20,8 +22,20 @@ export default class Apply extends Component {
         <View>
           <Header name="Home" prop={this.props}/>
         </View>
-        <View style={{flex: 1}}>
-          <Text>Apply Page</Text>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                    <View style={{flexDirection: 'row'}}>
+                        <View style={styles.tile}>
+                            <Text style={{fontSize: 30}}>0</Text>
+                            <Text>Remaining</Text>
+                        </View>
+                        <View style={styles.tile}>
+                            <Text style={{fontSize: 30}}>12</Text>
+                            <Text>Total</Text>
+                        </View>
+                    </View>
+                    <TouchableOpacity style={{backgroundColor: '#d50000', paddingHorizontal: 20, paddingVertical: 10, marginTop: 20, borderRadius: 1}}>
+                        <Text>Apply</Text>
+                    </TouchableOpacity>
         </View>
         <View>
           <Footer applyColor='#d50000' prop={this.props}/>
@@ -31,4 +45,14 @@ export default class Apply extends Component {
   }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    tile: {
+        backgroundColor: '#ff5131',
+        margin: 20,
+        height: 100,
+        width: 100,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 1
+    }
+});
