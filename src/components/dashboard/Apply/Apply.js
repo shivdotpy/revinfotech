@@ -1,28 +1,44 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View, StatusBar, ScrollView, Button, TouchableOpacity } from 'react-native'
+import React, {Component} from 'react'
+import {Text, StyleSheet, View, StatusBar, ScrollView, Button, TouchableOpacity} from 'react-native'
 
 import {Tile} from 'react-native-elements';
 
 // Footer
 import Header from '../Common/Header/Header';
 import Footer from '../Common/Footer/Footer';
+import Drawer from "../Common/Drawer/Drawer";
 
 
 export default class Apply extends Component {
-  
-  static navigationOptions = { header: null }
 
-  render() {
-    return (
-      <View style={{flex: 1}}>
-        <StatusBar
-            backgroundColor="#d50000"
-            barStyle="light-content"
-        />
-        <View>
-          <Header name="Home" prop={this.props}/>
-        </View>
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    constructor (props) {
+        super(props)
+
+        this.state = {
+            showDrawer : false
+        }
+
+
+        this.openDrawer = this.openDrawer.bind(this)
+    }
+
+    static navigationOptions = {header: null}
+
+    openDrawer  = () => {
+        this.setState({showDrawer: true})
+    }
+
+    render() {
+        return (
+            <View style={{flex: 1}}>
+                <StatusBar
+                    backgroundColor="#d50000"
+                    barStyle="light-content"
+                />
+                <View>
+                    <Header name="Home" prop={this.props} openDrawer={this.openDrawer}/>
+                </View>
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
                     <View style={{flexDirection: 'row'}}>
                         <View style={styles.tile}>
                             <Text style={{fontSize: 30}}>0</Text>
@@ -33,16 +49,24 @@ export default class Apply extends Component {
                             <Text>Total</Text>
                         </View>
                     </View>
-                    <TouchableOpacity style={{backgroundColor: '#d50000', paddingHorizontal: 20, paddingVertical: 10, marginTop: 20, borderRadius: 1}}>
+                    <TouchableOpacity style={{
+                        backgroundColor: '#d50000',
+                        paddingHorizontal: 20,
+                        paddingVertical: 10,
+                        marginTop: 20,
+                        borderRadius: 1
+                    }}>
                         <Text>Apply</Text>
                     </TouchableOpacity>
-        </View>
-        <View>
-          <Footer applyColor='#d50000' prop={this.props}/>
-        </View>  
-      </View>
-    )
-  }
+                </View>
+                <View>
+                    <Footer applyColor='#d50000' prop={this.props}/>
+                </View>
+                {this.state.showDrawer ?
+                <Drawer /> : null }
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
