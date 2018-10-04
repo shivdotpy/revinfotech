@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Text, StyleSheet, View, StatusBar, ScrollView, Button, TouchableOpacity} from 'react-native'
+import {Text, StyleSheet, View, StatusBar, ScrollView, Button, TouchableOpacity, BackHandler, BackAndroid} from 'react-native'
 
 import {Tile} from 'react-native-elements';
 
@@ -11,22 +11,46 @@ import Drawer from "../Common/Drawer/Drawer";
 
 export default class Apply extends Component {
 
-    constructor (props) {
+    constructor(props) {
         super(props)
 
         this.state = {
-            showDrawer : false
+            showDrawer: false
         }
 
 
         this.openDrawer = this.openDrawer.bind(this)
     }
 
-    static navigationOptions = {header: null}
+    static navigationOptions = {header: null};
 
-    openDrawer  = () => {
-        this.setState({showDrawer: true})
+
+
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
     }
+
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+
+    handleBackPress = () => {
+        if (this.state.showDrawer === true) {
+            this.setState({showDrawer: false})
+        } else {
+            BackAndroid.exitApp()
+        }
+        return true;
+    };
+
+    openDrawer = () => {
+        this.setState({showDrawer: true})
+    };
+
+    closeDrawer = () => {
+        this.setState({showDrawer: false})
+    };
 
     render() {
         return (
@@ -63,7 +87,7 @@ export default class Apply extends Component {
                     <Footer applyColor='#d50000' prop={this.props}/>
                 </View>
                 {this.state.showDrawer ?
-                <Drawer /> : null }
+                    <Drawer closeDrawer={this.closeDrawer}/> : null}
             </View>
         )
     }
